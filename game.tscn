@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://6781issv22lc"]
+
+[ext_resource type="Texture2D" uid="uid://cpsp7smfgmo56" path="res://icon.svg" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://bu6hh0ytuevf1" path="res://character.tscn" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://b8fa6g6yjbjs6" path="res://Player.cs" id="3_feb5d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2o6t"]
+albedo_texture = ExtResource("1_80nbo")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_feb5d"]
+size = Vector2(5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2o6t"]
+size = Vector3(5, 0, 5)
+
+[node name="Game" type="Node3D"]
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2.5, 4)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0037525, 0.999993, 0, -0.999993, -0.0037525, 0, 2.69425, 0)
+shadow_enabled = true
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_e2o6t")]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_e2o6t")
+mesh = SubResource("PlaneMesh_feb5d")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_e2o6t")
+
+[node name="Player" type="Node" parent="." node_paths=PackedStringArray("_character", "_camera")]
+script = ExtResource("3_feb5d")
+_character = NodePath("../CharacterBody3D")
+_camera = NodePath("../Camera")
