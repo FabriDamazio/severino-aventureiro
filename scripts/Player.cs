@@ -11,6 +11,18 @@ public partial class Player : Node
     private Vector2 _inputDirection;
     private Vector3 _moveDirection;
 
+    public override void _Input(InputEvent @event)
+    {
+        if (@event.IsActionPressed("run"))
+        {
+            _character.Run();
+        }
+        else if (@event.IsActionReleased("run"))
+        {
+            _character.Walk();
+        }
+    }
+
     public override void _Process(double delta)
     {
         _inputDirection = Input.GetVector("move_left", "move_right", "move_forward", "move_backward");
