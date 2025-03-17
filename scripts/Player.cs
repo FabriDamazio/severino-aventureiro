@@ -21,6 +21,10 @@ public partial class Player : Node
         {
             _character.Walk();
         }
+        else if (@event.IsActionPressed("jump"))
+        {
+            _character.Jump();
+        }
     }
 
     public override void _Process(double delta)

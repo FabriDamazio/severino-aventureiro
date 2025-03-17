@@ -18,7 +18,7 @@ size = Vector3(20, 0, 20)
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 4, 6)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="Sunlight" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0037525, 0.999993, 0, -0.999993, -0.0037525, 0, 2.69425, 0)
 shadow_enabled = true
 

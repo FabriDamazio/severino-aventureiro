@@ -26,10 +26,12 @@ public partial class Character : CharacterBody3D
 
     private AnimationTree _animation;
     private Node3D _rig;
+    private AnimationNodeStateMachinePlayback _stateMachine;
 
     public override void _Ready()
     {
         _animation = GetNode<AnimationTree>("%AnimationTree");
+        _stateMachine = (AnimationNodeStateMachinePlayback)_animation.Get("parameters/playback");
         _rig = GetNode<Node3D>("%Rig");
         _movementSpeed = _walkingSpeed;
     }
@@ -47,6 +49,21 @@ public partial class Character : CharacterBody3D
     public void Run()
     {
         _movementSpeed = _runningSpeed;
+    }
+
+    public void Jump()
+    {
+        if (IsOnFloor())
+        {
+            _stateMachine.Travel("Jump_Start");
+        }
+    }
+
+    public void ApplyJumpVelocity()
+    {
+        var velocity = Velocity;
+        velocity.Y = JumpVelocity;
+        Velocity = velocity;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -80,12 +97,6 @@ public partial class Character : CharacterBody3D
         if (!IsOnFloor())
         {
             velocity += GetGravity() * (float)delta;
-        }
-
-        // Handle Jump.
-        if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
-        {
-            velocity.Y = JumpVelocity;
         }
 
         if (_direction != Vector3.Zero)
