@@ -90,7 +90,17 @@ public partial class Character : CharacterBody3D
 
         if (_direction != Vector3.Zero)
         {
-            _xzVelocity = _xzVelocity.MoveToward(_direction * _movementSpeed, _acceleration * (float)delta);
+            // Check if the direction is the same as the velocity direction.
+            // If it is, move the character toward the direction.
+            // If it is not, move the character to the opposite direction.
+            if (_direction.Dot(velocity) >= 0)
+            {
+                _xzVelocity = _xzVelocity.MoveToward(_direction * _movementSpeed, _acceleration * (float)delta);
+            }
+            else
+            {
+                _xzVelocity = _xzVelocity.MoveToward(Vector3.Zero, _deceleration * (float)delta);
+            }
         }
         else
         {
