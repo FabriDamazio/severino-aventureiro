@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6011pdapssxr"]
+
+[ext_resource type="PackedScene" uid="uid://cn3fxff10wass" path="res://assets/dungeon/floor_dirt_large.gltf" id="1_giefk"]
+[ext_resource type="PackedScene" uid="uid://c5hlddh5hmvvh" path="res://assets/dungeon/box_large.gltf" id="2_p7fyo"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="floor_dirt_large2" parent="." instance=ExtResource("1_giefk")]
+
+[node name="box_large2" parent="." instance=ExtResource("2_p7fyo")]
