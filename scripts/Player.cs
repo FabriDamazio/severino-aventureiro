@@ -23,7 +23,11 @@ public partial class Player : Node
         }
         else if (@event.IsActionPressed("jump"))
         {
-            _character.Jump();
+            _character.StartJump();
+        }
+        else if (@event.IsActionReleased("jump"))
+        {
+            _character.CompleteJump();
         }
     }
 
