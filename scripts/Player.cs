@@ -6,7 +6,7 @@ public partial class Player : Node
     private Character _character;
 
     [Export]
-    private Camera3D _camera;
+    private SpringArm _springArm;
 
     private Vector2 _inputDirection;
     private Vector3 _moveDirection;
@@ -33,9 +33,10 @@ public partial class Player : Node
 
     public override void _Process(double delta)
     {
+        _springArm.Look(Input.GetVector("look_left", "look_right", "look_up", "look_down"));
         _inputDirection = Input.GetVector("move_left", "move_right", "move_forward", "move_backward");
-        _moveDirection = _camera.Basis.X * new Vector3(1, 0, 1) * _inputDirection.X;
-        _moveDirection += _camera.Basis.Z * new Vector3(1, 0, 1) * _inputDirection.Y;
+        _moveDirection = _springArm.Basis.X * new Vector3(1, 0, 1) * _inputDirection.X;
+        _moveDirection += _springArm.Basis.Z * new Vector3(1, 0, 1) * _inputDirection.Y;
         _character.Move(_moveDirection);
     }
 }
