@@ -8,11 +8,22 @@ public partial class Player : Node
     [Export]
     private SpringArm _springArm;
 
+    [Export]
+    private GameManager _gameManager;
+
     private Vector2 _inputDirection;
     private Vector3 _moveDirection;
 
     public override void _Input(InputEvent @event)
     {
+        if (@event.IsActionPressed("pause"))
+        {
+            _gameManager.TooglePause();
+        }
+
+        if (GetTree().Paused)
+            return;
+
         if (@event.IsActionPressed("run"))
         {
             _character.Run();
@@ -33,6 +44,9 @@ public partial class Player : Node
 
     public override void _Process(double delta)
     {
+        if (GetTree().Paused)
+            return;
+
         _springArm.Look(Input.GetVector("look_left", "look_right", "look_up", "look_down"));
         _inputDirection = Input.GetVector("move_left", "move_right", "move_forward", "move_backward");
         _moveDirection = _springArm.Basis.X * new Vector3(1, 0, 1) * _inputDirection.X;
