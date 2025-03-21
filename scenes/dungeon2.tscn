@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxqt3f44457a7"]
+[gd_scene load_steps=3 format=3 uid="uid://dwrkk4d8r4p8c"]
 
-[ext_resource type="MeshLibrary" uid="uid://du0o02xccpekk" path="res://assets/dungeon/dungeon_mesh_library.tres" id="1_ubp1v"]
-[ext_resource type="PackedScene" uid="uid://c5hlddh5hmvvh" path="res://assets/dungeon/box_large.gltf" id="2_c4wp1"]
+[ext_resource type="MeshLibrary" uid="uid://du0o02xccpekk" path="res://assets/dungeon/dungeon_mesh_library.tres" id="1_fq7bn"]
+[ext_resource type="PackedScene" uid="uid://c5hlddh5hmvvh" path="res://assets/dungeon/box_large.gltf" id="2_16cfy"]
 
 [node name="Dungeon" type="Node3D"]
 
@@ -10,7 +10,7 @@ transform = Transform3D(1, 0, 0, 0, -0.0037525, 0.999993, 0, -0.999993, -0.00375
 shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("1_ubp1v")
+mesh_library = ExtResource("1_fq7bn")
 cell_size = Vector3(1, 1, 1)
 cell_center_x = false
 cell_center_y = false
@@ -20,5 +20,8 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="box_large2" parent="." instance=ExtResource("2_c4wp1")]
+[node name="box_large2" parent="." instance=ExtResource("2_16cfy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.77517, 0.0200005, 0)
+
+[node name="box_large3" parent="." instance=ExtResource("2_16cfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.77517, 0.0200005, -6.02606)
