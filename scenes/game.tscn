@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d17uno8lfwmes" path="res://scripts/SpringArm.cs" id="2_lbhrr"]
 [ext_resource type="Script" uid="uid://b8fa6g6yjbjs6" path="res://scripts/Player.cs" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://cxqt3f44457a7" path="res://scenes/dungeon.tscn" id="3_lnu2h"]
-[ext_resource type="Script" uid="uid://cl5xlwbkny7ua" path="res://scripts/Menu.cs" id="6_p57ef"]
+[ext_resource type="Script" uid="uid://cl5xlwbkny7ua" path="res://scripts/UI/Menu.cs" id="6_p57ef"]
 [ext_resource type="Theme" uid="uid://btj1pf1u40s07" path="res://assets/UI/menu_buttons_theme.tres" id="6_u5sy4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lnu2h"]

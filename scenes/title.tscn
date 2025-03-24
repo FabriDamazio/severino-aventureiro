@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://te0x0te7e0gj"]
 
-[ext_resource type="Script" uid="uid://cl5xlwbkny7ua" path="res://scripts/Menu.cs" id="1_4ignj"]
-[ext_resource type="Script" uid="uid://buojmpk5ftx0y" path="res://scripts/TitleManager.cs" id="1_wosw1"]
+[ext_resource type="Script" uid="uid://cl5xlwbkny7ua" path="res://scripts/UI/Menu.cs" id="1_4ignj"]
+[ext_resource type="Script" uid="uid://buojmpk5ftx0y" path="res://scripts/UI/TitleManager.cs" id="1_wosw1"]
 [ext_resource type="Texture2D" uid="uid://vbt22a3kkka1" path="res://assets/UI/background.png" id="2_p6dhs"]
 [ext_resource type="FontFile" uid="uid://cno0lchlg8tu2" path="res://assets/UI/fonts/Celtica-Bold.ttf" id="3_pyl7j"]
 [ext_resource type="Theme" uid="uid://btj1pf1u40s07" path="res://assets/UI/menu_buttons_theme.tres" id="4_b3w7a"]
@@ -79,3 +79,14 @@ text = "Credits	"
 [node name="Exit" type="Button" parent="MenuButtons"]
 layout_mode = 2
 text = "Exit"
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
