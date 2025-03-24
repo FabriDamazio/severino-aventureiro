@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Severino Aventureiro"
-run/main_scene="uid://6781issv22lc"
+run/main_scene="uid://te0x0te7e0gj"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://btj1pf1u40s07"]
+
+[ext_resource type="StyleBox" uid="uid://bya7h23sfusgq" path="res://assets/UI/button_style_box_texture.tres" id="1_34w8l"]
+[ext_resource type="Texture2D" uid="uid://dihknca6hmivw" path="res://assets/UI/ButtonText_OnOffBackground.png" id="2_m1l70"]
+[ext_resource type="FontFile" uid="uid://c7ysm5mhf58hk" path="res://assets/UI/fonts/Celtica-Book.ttf" id="3_fyg0n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hiwto"]
+content_margin_left = 32.0
+content_margin_top = 12.0
+content_margin_right = 32.0
+content_margin_bottom = 12.0
+texture = ExtResource("2_m1l70")
+
+[resource]
+default_font = ExtResource("3_fyg0n")
+default_font_size = 24
+Button/colors/font_hover_color = Color(0.94902, 0.94902, 0, 1)
+Button/styles/disabled = ExtResource("1_34w8l")
+Button/styles/focus = ExtResource("1_34w8l")
+Button/styles/hover = ExtResource("1_34w8l")
+Button/styles/normal = ExtResource("1_34w8l")
+Button/styles/pressed = SubResource("StyleBoxTexture_hiwto")

@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://te0x0te7e0gj"]
+
+[ext_resource type="Script" uid="uid://cl5xlwbkny7ua" path="res://scripts/Menu.cs" id="1_4ignj"]
+[ext_resource type="Script" uid="uid://buojmpk5ftx0y" path="res://scripts/TitleManager.cs" id="1_wosw1"]
+[ext_resource type="Texture2D" uid="uid://vbt22a3kkka1" path="res://assets/UI/background.png" id="2_p6dhs"]
+[ext_resource type="FontFile" uid="uid://cno0lchlg8tu2" path="res://assets/UI/fonts/Celtica-Bold.ttf" id="3_pyl7j"]
+[ext_resource type="Theme" uid="uid://btj1pf1u40s07" path="res://assets/UI/menu_buttons_theme.tres" id="4_b3w7a"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wosw1")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_p6dhs")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.333
+anchor_right = 0.5
+anchor_bottom = 0.333
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.737255, 0.752941, 0.768627, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0.466667, 0.466667, 0.478431, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_pyl7j")
+theme_override_font_sizes/font_size = 64
+text = "Severino Aventureiro"
+
+[node name="MenuButtons" type="VBoxContainer" parent="." node_paths=PackedStringArray("_defaultFocusItem")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.657
+anchor_right = 0.5
+anchor_bottom = 0.657
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_b3w7a")
+script = ExtResource("1_4ignj")
+_defaultFocusItem = NodePath("NewGame")
+
+[node name="NewGame" type="Button" parent="MenuButtons"]
+layout_mode = 2
+text = "New Game"
+
+[node name="Continue" type="Button" parent="MenuButtons"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Settings" type="Button" parent="MenuButtons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Credits" type="Button" parent="MenuButtons"]
+layout_mode = 2
+text = "Credits	"
+
+[node name="Exit" type="Button" parent="MenuButtons"]
+layout_mode = 2
+text = "Exit"
