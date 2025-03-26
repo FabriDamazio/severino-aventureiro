@@ -1,12 +1,14 @@
 using Godot;
 
-public partial class GameManager : Node3D
+public partial class GameManager : SceneManager
 {
     [Export]
     private Menu _pauseMenu;
 
     public override void _Ready()
     {
+        base._Ready();
+
         _pauseMenu.GetNode<Button>("Exit").Pressed += OnExitPressed;
         _pauseMenu.GetNode<Button>("Continue").Pressed += TooglePause;
     }
@@ -24,8 +26,10 @@ public partial class GameManager : Node3D
         }
     }
 
-    private void OnExitPressed()
+    private async void OnExitPressed()
     {
-        GD.Print("Exit pressed");
+        await _fade.ToBlack();
+        GetTree().Paused = false;
+        GetTree().ChangeSceneToFile("res://scenes/title.tscn");
     }
 }

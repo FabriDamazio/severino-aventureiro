@@ -1,18 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://6781issv22lc"]
+[gd_scene load_steps=10 format=3 uid="uid://6781issv22lc"]
 
-[ext_resource type="Script" uid="uid://dx3pkfdsl6a8f" path="res://scripts/GameManager.cs" id="1_iywne"]
+[ext_resource type="Script" uid="uid://dx3pkfdsl6a8f" path="res://scripts/managers/GameManager.cs" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://bu6hh0ytuevf1" path="res://scenes/character.tscn" id="2_e2o6t"]
 [ext_resource type="Script" uid="uid://d17uno8lfwmes" path="res://scripts/SpringArm.cs" id="2_lbhrr"]
 [ext_resource type="Script" uid="uid://b8fa6g6yjbjs6" path="res://scripts/Player.cs" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://cxqt3f44457a7" path="res://scenes/dungeon.tscn" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://cl5xlwbkny7ua" path="res://scripts/UI/Menu.cs" id="6_p57ef"]
 [ext_resource type="Theme" uid="uid://btj1pf1u40s07" path="res://assets/UI/menu_buttons_theme.tres" id="6_u5sy4"]
+[ext_resource type="Script" uid="uid://chbe1tfm8c5wl" path="res://scripts/UI/Fade.cs" id="8_gee14"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lnu2h"]
 
-[node name="Game" type="Node3D" node_paths=PackedStringArray("_pauseMenu")]
+[node name="Game" type="Node3D" node_paths=PackedStringArray("_pauseMenu", "_fade")]
 script = ExtResource("1_iywne")
 _pauseMenu = NodePath("UI/PauseMenu")
+_fade = NodePath("UI/Fade")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_e2o6t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0200005, 0)
@@ -67,3 +69,15 @@ text = "Continue"
 layout_mode = 2
 text = "Exit
 "
+
+[node name="Fade" type="ColorRect" parent="UI"]
+process_mode = 3
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_gee14")

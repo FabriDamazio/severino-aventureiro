@@ -1,11 +1,13 @@
 using Godot;
 
-public partial class TitleManager : Node
+public partial class TitleManager : SceneManager
 {
     private Menu _menuButtons;
 
     public override void _Ready()
     {
+        base._Ready();
+
         _menuButtons = GetNode<Menu>("%MenuButtons");
         _menuButtons.GetNode<Button>("NewGame").Pressed += OnNewGamePressed;
         _menuButtons.GetNode<Button>("Continue").Pressed += OnContinuePressed;
@@ -15,8 +17,9 @@ public partial class TitleManager : Node
         _menuButtons.Open();
     }
 
-    private void OnNewGamePressed()
+    private async void OnNewGamePressed()
     {
+        await _fade.ToBlack();
         GetTree().ChangeSceneToFile("res://scenes/game.tscn");
     }
 
