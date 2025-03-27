@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://te0x0te7e0gj"]
+[gd_scene load_steps=8 format=3 uid="uid://te0x0te7e0gj"]
 
 [ext_resource type="Script" uid="uid://cl5xlwbkny7ua" path="res://scripts/UI/Menu.cs" id="1_4ignj"]
 [ext_resource type="Script" uid="uid://buojmpk5ftx0y" path="res://scripts/managers/TitleManager.cs" id="1_wosw1"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://cno0lchlg8tu2" path="res://assets/UI/fonts/Celtica-Bold.ttf" id="3_pyl7j"]
 [ext_resource type="Theme" uid="uid://btj1pf1u40s07" path="res://assets/UI/menu_buttons_theme.tres" id="4_b3w7a"]
 [ext_resource type="Script" uid="uid://chbe1tfm8c5wl" path="res://scripts/UI/Fade.cs" id="6_4rr2b"]
+[ext_resource type="AudioStream" uid="uid://c0goecjud1bif" path="res://assets/music/Echoes of the Past.ogg" id="7_yql1r"]
 
 [node name="Title" type="Control" node_paths=PackedStringArray("_fade")]
 layout_mode = 3
@@ -16,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wosw1")
 _fade = NodePath("Fade")
+_backgroundMusic = ExtResource("7_yql1r")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c0goecjud1bif"
+path="res://.godot/imported/Echoes of the Past.ogg-780593365145c5c4f9e835159871bafe.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Echoes of the Past.ogg"
+dest_files=["res://.godot/imported/Echoes of the Past.ogg-780593365145c5c4f9e835159871bafe.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

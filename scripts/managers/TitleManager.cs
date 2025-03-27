@@ -3,10 +3,13 @@ using Godot;
 public partial class TitleManager : SceneManager
 {
     private Menu _menuButtons;
+    private Music _music;
 
     public override void _Ready()
     {
         base._Ready();
+
+        _music = GetNode<Music>("/root/Music");
 
         _menuButtons = GetNode<Menu>("%MenuButtons");
         _menuButtons.GetNode<Button>("NewGame").Pressed += OnNewGamePressed;
@@ -19,6 +22,7 @@ public partial class TitleManager : SceneManager
 
     private async void OnNewGamePressed()
     {
+        _music.FadeOut();
         await _fade.ToBlack();
         GetTree().ChangeSceneToFile("res://scenes/game.tscn");
     }
